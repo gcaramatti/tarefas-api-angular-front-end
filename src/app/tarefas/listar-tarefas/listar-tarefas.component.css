@@ -1,0 +1,35 @@
+.table-header-configs{
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #303438;
+    color: #fff;
+}
+.table{
+    border: 1px black solid;
+}
+th{
+    padding: 5px;
+}
+#msg-sucesso,
+#msg-sucesso-update,
+#msg-sucesso-delete{
+    display: none;
+}
+#msg-sucesso,
+#msg-sucesso-update,
+#msg-sucesso-delete{
+    animation-name: fadeInAndOut;
+    animation-duration: 4s;
+}
+
+@-webkit-keyframes fadInAndOut{
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes fadInAndOut{
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}

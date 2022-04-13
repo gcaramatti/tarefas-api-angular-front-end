@@ -1,0 +1,33 @@
+<form>
+    <div class="mb-3">
+        <label for="tituloTarefa" class="form-label">Título tarefa</label>
+        <input type="text" class="form-control" [(ngModel)]="name" name="tituloTarefa">
+    </div>
+    <div class="mb-3">
+        <label for="statusTarefa" class="form-label">Status</label>
+        <select class="form-select" name="statusTarefa" id="statusTarefa" [(ngModel)]="status">
+            <option *ngFor="let status of listaStatus$|async" [value]="status.opcaoStatus">{{status.opcaoStatus}}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="descricaoTarefa" class="form-label">Descrição</label>
+        <input type="text" class="form-control" [(ngModel)]="descricao" name="descricaoTarefa">
+    </div>
+    <div class="mb-3">
+        <label for="tipoTarefaId" class="form-label">Tipo da tarefa</label>
+        <input type="text" class="form-control" name="tipoTarefaId" [(ngModel)]="tipoTarefaId"
+        *ngIf="tarefa.id!=0" disabled
+        >
+        <select class="form-select" name="tipoTarefaId" id="tipoTarefaId" [(ngModel)]="tipoTarefaId" 
+        *ngIf="tarefa.id==0">
+            <option *ngFor="let tipo of listaDeTipos$|async" [value]="tipo.id">{{tipo.nome}}</option>
+        </select>
+    </div>
+
+    <button (click)="adicionarTarefa()" *ngIf="tarefa.id==0" class="btn btn-secondary">
+        Adicionar
+    </button>
+    <button (click)="atualizarTarefa()" *ngIf="tarefa.id!=0" class="btn btn-secondary">
+        Salvar
+    </button>
+</form>
